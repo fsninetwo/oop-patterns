@@ -1,6 +1,12 @@
+using OOP_Patterns.API.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddMvc();
+builder.Services.AddSwaggerService();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.UseSwaggerService();
 
 app.Run();
