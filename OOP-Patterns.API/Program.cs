@@ -9,4 +9,10 @@ var app = builder.Build();
 
 app.UseSwaggerService();
 
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
 app.Run();
