@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_Patterns.Services.IServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace OOP_Patterns.Services.Services.Factory
 {
-    public abstract class BaseUploadService
+    public class UDPUploadService : BaseUploadService
     {
-        public abstract Task DownloadItem(string message)
+        public override Task DownloadItem(string message)
         {
             throw new NotImplementedException();
         }
 
-        public abstract Task UploadItem(string message)
+        public override Task UploadItem(string message)
         {
             throw new NotImplementedException();
         }
