@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace OOP_Patterns.Services.Services.Factory
 {
-    public class UDPUploadService : BaseUploadService
+    public class UDPUploadService : IBaseUploadService
     {
-        public override Task<string> DownloadItemAsync(string message)
+        public Task<string> DownloadItemAsync(string message)
         {
             return Task.FromResult(message);
         }
 
-        public override Task<string> UploadItemAsync(string message)
+        public Task<string> UploadItemAsync(string message)
         {
             return Task.FromResult(message);
         }

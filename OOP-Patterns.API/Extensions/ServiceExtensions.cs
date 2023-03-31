@@ -1,6 +1,8 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using OOP_Patterns.Services.IServices;
-using OOP_Patterns.Services.Services;
+using OOP_Patterns.Services.Providers;
+using OOP_Patterns.Services.Services.Factory;
 
 namespace OOP_Patterns.API.Extensions
 {
@@ -9,6 +11,10 @@ namespace OOP_Patterns.API.Extensions
         public static void AddDependencyInjections(this IServiceCollection services)
         {
             services.AddScoped<IUploadService, UploadService>();
+            services.AddScoped<IUploadProvider, UploadProvider>();
+
+            services.AddScoped<IBaseUploadService, TCPUploadService>();
+            services.AddScoped<IBaseUploadService, UDPUploadService>();
         }
 
         public static void AddSwaggerService(this IServiceCollection services)
