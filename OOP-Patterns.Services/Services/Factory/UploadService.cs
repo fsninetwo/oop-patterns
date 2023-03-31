@@ -1,39 +1,35 @@
 ﻿using OOP_Patterns.Common.Enums;
-using OOP_Patterns.Services.Factories.Interfaces;
 using OOP_Patterns.Services.IServices;
-using OOP_Patterns.Services.Services.Factory;
+using OOP_Patterns.Services.Providers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_Patterns.Services.Services
+namespace OOP_Patterns.Services.Services.Factory
 {
-    public class UploadService : IUploadFactory<IBaseUploadService>, IUploadService
+    public class UploadService : IUploadService
     {
+        private readonly IUploadProvider _uploadProvider;
+
+        public UploadService(IUploadProvider uploadProvider)
+        {
+            _uploadProvider = uploadProvider;
+        }
+
         public async Task<string> UploadItemAsync(string message, UploadEnum uploadType)
         {
-            var uploadService = GetRequiredService(uploadType);
+            var uploadService = _uploadProvider.GetRequiredService(uploadType);
 
             return await uploadService.UploadItemAsync(message);
         }
 
         public async Task<string> DownloadItemAsync(string message, UploadEnum uploadType)
         {
-            var uploadService = GetRequiredService(uploadType);
+            var uploadService = _uploadProvider.GetRequiredService(uploadType);
 
             return await uploadService.DownloadItemAsync(message);
-        }
-
-        public IBaseUploadService GetRequiredService(UploadEnum uploadType)
-        {
-            return uploadType switch
-            {
-                UploadEnum.TCP => new TCPUploadService(),
-                UploadEnum.UDP => new UDPUploadService(),
-                _ => throw new NotImplementedException("Required service is not implemented"),
-            };
         }
     }
 }
