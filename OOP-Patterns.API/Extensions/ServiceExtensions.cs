@@ -1,9 +1,16 @@
 ﻿using Microsoft.OpenApi.Models;
+using OOP_Patterns.Services.IServices;
+using OOP_Patterns.Services.Services;
 
 namespace OOP_Patterns.API.Extensions
 {
     static class ServiceExtensions
     {
+        public static void AddDependencyInjections(this IServiceCollection services)
+        {
+            services.AddScoped<IUploadService, UploadService>();
+        }
+
         public static void AddSwaggerService(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
