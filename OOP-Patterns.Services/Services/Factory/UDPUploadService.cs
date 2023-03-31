@@ -9,14 +9,14 @@ namespace OOP_Patterns.Services.Services.Factory
 {
     public class UDPUploadService : BaseUploadService
     {
-        public override Task DownloadItem(string message)
+        public override Task<string> DownloadItemAsync(string message)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(message);
         }
 
-        public override Task UploadItem(string message)
+        public override Task<string> UploadItemAsync(string message)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(message);
         }
     }
 }

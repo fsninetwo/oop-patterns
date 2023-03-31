@@ -9,8 +9,8 @@ namespace OOP_Patterns.Services.IServices
 {
     public interface IUploadService
     {
-        Task DownloadItem(string message, UploadEnum uploadType);
+        Task<string> DownloadItemAsync(string message, UploadEnum uploadType);
 
-        Task UploadItem(string message, UploadEnum uploadType);
+        Task<string> UploadItemAsync(string message, UploadEnum uploadType);
     }
 }

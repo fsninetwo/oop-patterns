@@ -8,25 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_Patterns.Common.Domain
+namespace OOP_Patterns.Services.Services
 {
-    public class UploadFactoryService : IUploadFactory<BaseUploadService>, IUploadService
+    public class UploadService : IUploadFactory<IBaseUploadService>, IUploadService
     {
-        public async Task UploadItem(string message, UploadEnum uploadType)
+        public async Task<string> UploadItemAsync(string message, UploadEnum uploadType)
         {
             var uploadService = GetRequiredService(uploadType);
 
-            await uploadService.UploadItem(message);
+            return await uploadService.UploadItemAsync(message);
         }
 
-        public async Task DownloadItem(string message, UploadEnum uploadType)
+        public async Task<string> DownloadItemAsync(string message, UploadEnum uploadType)
         {
             var uploadService = GetRequiredService(uploadType);
 
-            await uploadService.DownloadItem(message);
+            return await uploadService.DownloadItemAsync(message);
         }
 
-        public BaseUploadService GetRequiredService(UploadEnum uploadType)
+        public IBaseUploadService GetRequiredService(UploadEnum uploadType)
         {
             return uploadType switch
             {

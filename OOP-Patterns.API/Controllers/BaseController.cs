@@ -2,10 +2,13 @@
 
 namespace OOP_Patterns.API.Controllers
 {
-    [Route("[controller/[action]")]
+    [Route("[controller]/[action]")]
     [ApiController]
-    public class BaseController : Controller
+    public class BaseController : ControllerBase
     {
+        protected BaseController()
+        {
 
+        }
     }
 }
