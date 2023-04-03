@@ -1,4 +1,4 @@
-﻿using OOP_Patterns.Common.Enums;
+﻿using OOP_Patterns.Common.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
