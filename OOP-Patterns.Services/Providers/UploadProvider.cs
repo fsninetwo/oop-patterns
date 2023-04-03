@@ -1,4 +1,4 @@
-﻿using OOP_Patterns.Common.Enums;
+﻿using OOP_Patterns.Common.Domain.Enums;
 using OOP_Patterns.Services.IServices;
 using OOP_Patterns.Services.Services.Factory;
 using System;
