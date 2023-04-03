@@ -6,23 +6,23 @@ namespace OOP_Patterns.API.Controllers
 {
     public class AbstractFactoryController : BaseController
     {
-        private readonly IDocumentService _documentService;
+        private readonly IUploadService _uploadService;
 
-        public AbstractFactoryController(IDocumentService documentService)
+        public AbstractFactoryController(IUploadService uploadService) 
         {
-            _documentService = documentService;
+            _uploadService = uploadService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> UploadDocument(string message, DocumentEnum uploadType)
+        public async Task<IActionResult> DownloadItem(string message, UploadEnum uploadType)
         {
-            return Ok(await _documentService.UploadDocumentAsync(message, uploadType));
+            return Ok(await _uploadService.DownloadItemAsync(message, uploadType));
         }
 
         [HttpPost]
-        public async Task<IActionResult> DownloadDocument(string message, DocumentEnum uploadType)
+        public async Task<IActionResult> UploadItem(string message, UploadEnum uploadType)
         {
-            return Ok(await _documentService.DownloadDocumentAsync(message, uploadType));
+            return Ok(await _uploadService.UploadItemAsync(message, uploadType));
         }
     }
 }
