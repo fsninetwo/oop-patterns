@@ -11,8 +11,4 @@
     <ProjectReference Include="..\OOP-Patterns.Common\OOP-Patterns.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\AbstractFactory\" />
-  </ItemGroup>
-
 </Project>

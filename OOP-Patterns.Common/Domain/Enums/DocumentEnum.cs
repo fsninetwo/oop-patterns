@@ -10,6 +10,6 @@ namespace OOP_Patterns.Common.Domain.Enums
     {
         Excel = 1,
         Word = 2,
-        Powerpoint = 3
+        PowerPoint = 3
     }
 }
