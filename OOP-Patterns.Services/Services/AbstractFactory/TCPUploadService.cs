@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_Patterns.Services.Services.Factory
+namespace OOP_Patterns.Services.Services.AbstractFactory
 {
     public class TCPUploadService : IBaseUploadService
     {

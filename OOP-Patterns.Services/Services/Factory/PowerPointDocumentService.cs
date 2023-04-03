@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_Patterns.Services.Services.AbstractFactory
+namespace OOP_Patterns.Services.Services.Factory
 {
     public class PowerPointDocumentService : BaseDocumentService
     {
