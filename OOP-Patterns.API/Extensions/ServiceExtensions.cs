@@ -4,6 +4,7 @@ using OOP_Patterns.Common.Domain.Extensions;
 using OOP_Patterns.Services.IServices;
 using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
+using OOP_Patterns.Services.Services.Builder;
 using OOP_Patterns.Services.Services.Factory;
 
 namespace OOP_Patterns.API.Extensions
@@ -16,6 +17,7 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IUploadProvider, UploadProvider>();
 
             services.AddScoped<IDocumentService, DocumentService>();
+            services.AddScoped<IReportService, ReportService>();
 
             services.AddFactory<IBaseUploadService, TCPUploadService>();
             services.AddFactory<IBaseUploadService, UDPUploadService>();
