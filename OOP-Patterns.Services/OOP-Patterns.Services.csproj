@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OOP-Patterns.Common\OOP-Patterns.Common.csproj" />
+    <ProjectReference Include="..\OOP-Patterns.Data\OOP-Patterns.Data.csproj" />
   </ItemGroup>
 
 </Project>
