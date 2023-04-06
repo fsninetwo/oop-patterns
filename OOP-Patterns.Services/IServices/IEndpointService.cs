@@ -8,6 +8,6 @@ namespace OOP_Patterns.Services.IServices
 {
     public interface IEndpointService
     {
-        public Task<string> SendMessageAsync(string message);
+        public Task<string> SendAsync(string message);
     }
 }

@@ -17,7 +17,7 @@ namespace OOP_Patterns.Services.Services.Adapter
             _endpointAdapter = endpointAdapter;
         }
 
-        public async Task<string> SendMessageAsync(string message)
+        public async Task<string> SendAsync(string message)
         {
             return await _endpointAdapter.SendMessageAsync(message);
         }
