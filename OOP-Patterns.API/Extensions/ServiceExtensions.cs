@@ -6,6 +6,7 @@ using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
 using OOP_Patterns.Services.Services.Builder;
 using OOP_Patterns.Services.Services.Factory;
+using OOP_Patterns.Services.Services.Singleton;
 
 namespace OOP_Patterns.API.Extensions
 {
@@ -18,6 +19,7 @@ namespace OOP_Patterns.API.Extensions
 
             services.AddScoped<IDocumentService, DocumentService>();
             services.AddScoped<IReportService, ReportService>();
+            services.AddScoped<ISingletonService, SingletonService>();
 
             services.AddFactory<IBaseUploadService, TCPUploadService>();
             services.AddFactory<IBaseUploadService, UDPUploadService>();
