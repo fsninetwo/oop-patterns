@@ -7,6 +7,7 @@ using OOP_Patterns.Services.IServices;
 using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
 using OOP_Patterns.Services.Services.Adapter;
+using OOP_Patterns.Services.Services.Bridge;
 using OOP_Patterns.Services.Services.Builder;
 using OOP_Patterns.Services.Services.Factory;
 using OOP_Patterns.Services.Services.Singleton;
@@ -26,6 +27,9 @@ namespace OOP_Patterns.API.Extensions
 
             services.AddScoped<IEndpointAdapter, EndpointAdapter>();
             services.AddScoped<IEndpointService, EndpointService>();
+
+            services.AddScoped<INotifierService, NotifierService>();
+            services.AddScoped<IMessageService, MessageService>();
 
             services.AddFactory<IBaseUploadService, TCPUploadService>();
             services.AddFactory<IBaseUploadService, UDPUploadService>();
