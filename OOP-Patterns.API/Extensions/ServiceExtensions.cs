@@ -6,6 +6,7 @@ using OOP_Patterns.Services.Adapters.Interfaces;
 using OOP_Patterns.Services.IServices;
 using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
+using OOP_Patterns.Services.Services.Adapter;
 using OOP_Patterns.Services.Services.Builder;
 using OOP_Patterns.Services.Services.Factory;
 using OOP_Patterns.Services.Services.Singleton;
@@ -24,7 +25,7 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<ISingletonService, SingletonService>();
 
             services.AddScoped<IEndpointAdapter, EndpointAdapter>();
-            services.AddScoped<IEndpointService, IEndpointService>();
+            services.AddScoped<IEndpointService, EndpointService>();
 
             services.AddFactory<IBaseUploadService, TCPUploadService>();
             services.AddFactory<IBaseUploadService, UDPUploadService>();
