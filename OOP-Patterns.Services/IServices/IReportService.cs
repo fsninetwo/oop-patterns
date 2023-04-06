@@ -13,5 +13,9 @@ namespace OOP_Patterns.Services.IServices
         public Task<ReportModel> GetShortReportAsync(DocumentEnum documentType);
 
         public Task<ReportModel> GetFullReportAsync(DocumentEnum documentType);
+
+        public Task<ReportModel> GetShallowCopyReportAsync(DocumentEnum documentType);   
+
+        public Task<ReportModel> GetDeepCopyReportAsync(DocumentEnum documentType);    
     }
 }
