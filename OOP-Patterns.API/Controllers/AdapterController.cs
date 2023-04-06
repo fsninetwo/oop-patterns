@@ -13,9 +13,9 @@ namespace OOP_Patterns.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SendMessage(string message)
+        public async Task<IActionResult> Send(string message)
         {
-            return Ok(await _endpointService.SendMessageAsync(message));
+            return Ok(await _endpointService.SendAsync(message));
         }
     }
 }
