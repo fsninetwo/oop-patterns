@@ -13,9 +13,9 @@ namespace OOP_Patterns.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetMessage(string message)
+        public async Task<IActionResult> GetMessage(string message)
         {
-            return Ok(_singletonService.GetSingletonMessageAsync(message));
+            return Ok(await _singletonService.GetSingletonMessageAsync(message));
         }
     }
 }
