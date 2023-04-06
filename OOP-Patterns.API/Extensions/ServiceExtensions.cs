@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using OOP_Patterns.Common.Domain.Extensions;
+using OOP_Patterns.Services.Adapters;
+using OOP_Patterns.Services.Adapters.Interfaces;
 using OOP_Patterns.Services.IServices;
 using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
@@ -20,6 +22,9 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IDocumentService, DocumentService>();
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<ISingletonService, SingletonService>();
+
+            services.AddScoped<IEndpointAdapter, EndpointAdapter>();
+            services.AddScoped<IEndpointService, IEndpointService>();
 
             services.AddFactory<IBaseUploadService, TCPUploadService>();
             services.AddFactory<IBaseUploadService, UDPUploadService>();
