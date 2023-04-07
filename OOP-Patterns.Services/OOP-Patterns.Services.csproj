@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OOP-Patterns.Common\OOP-Patterns.Common.csproj" />
     <ProjectReference Include="..\OOP-Patterns.Data\OOP-Patterns.Data.csproj" />
   </ItemGroup>
