@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using OOP_Patterns.Common.Domain.Extensions;
+using OOP_Patterns.Common.Domain.Interfaces;
+using OOP_Patterns.Common.Domain.Providers;
 using OOP_Patterns.Services.Adapters;
 using OOP_Patterns.Services.Adapters.Interfaces;
 using OOP_Patterns.Services.IServices;
@@ -13,6 +15,7 @@ using OOP_Patterns.Services.Services.Composite;
 using OOP_Patterns.Services.Services.Decorator;
 using OOP_Patterns.Services.Services.Facade;
 using OOP_Patterns.Services.Services.Factory;
+using OOP_Patterns.Services.Services.Flyweight;
 using OOP_Patterns.Services.Services.Singleton;
 
 namespace OOP_Patterns.API.Extensions
@@ -21,16 +24,20 @@ namespace OOP_Patterns.API.Extensions
     {
         public static void AddDependencyInjections(this IServiceCollection services)
         {
-            services.AddScoped<IUploadService, UploadService>();
             services.AddScoped<IUploadProvider, UploadProvider>();
+            services.AddScoped<ICacheProvider, CacheProvider>();
 
+            services.AddScoped<IEndpointAdapter, EndpointAdapter>();
+            services.AddScoped<ICacheAdapter, CacheAdapter>();
+
+            services.AddScoped<IUploadService, UploadService>();
             services.AddScoped<IDocumentService, DocumentService>();
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<ISingletonService, SingletonService>();
             services.AddScoped<IFileSystemService, FileSystemService>();
+            services.AddScoped<IFlyweightService, FlyweightService>();
             services.AddScoped<IFacadeService, FacadeService>();
-
-            services.AddScoped<IEndpointAdapter, EndpointAdapter>();
+            
             services.AddScoped<IEndpointService, EndpointService>();
 
             services.AddDecorator<
