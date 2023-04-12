@@ -11,6 +11,7 @@ using OOP_Patterns.Services.Services.Bridge;
 using OOP_Patterns.Services.Services.Builder;
 using OOP_Patterns.Services.Services.Composite;
 using OOP_Patterns.Services.Services.Decorator;
+using OOP_Patterns.Services.Services.Facade;
 using OOP_Patterns.Services.Services.Factory;
 using OOP_Patterns.Services.Services.Singleton;
 
@@ -27,6 +28,7 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<ISingletonService, SingletonService>();
             services.AddScoped<IFileSystemService, FileSystemService>();
+            services.AddScoped<IFacadeService, FacadeService>();
 
             services.AddScoped<IEndpointAdapter, EndpointAdapter>();
             services.AddScoped<IEndpointService, EndpointService>();
