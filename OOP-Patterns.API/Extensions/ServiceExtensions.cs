@@ -19,6 +19,7 @@ using OOP_Patterns.Services.Services.Decorator;
 using OOP_Patterns.Services.Services.Facade;
 using OOP_Patterns.Services.Services.Factory;
 using OOP_Patterns.Services.Services.Flyweight;
+using OOP_Patterns.Services.Services.Proxy;
 using OOP_Patterns.Services.Services.Singleton;
 
 namespace OOP_Patterns.API.Extensions
@@ -40,18 +41,17 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IFileSystemService, FileSystemService>();
             services.AddScoped<IFlyweightService, FlyweightService>();
             services.AddScoped<IFacadeService, FacadeService>();
+            services.AddScoped<INotifierService, NotifierService>();
+            services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IMessageProxyService, MessageProxyService>();
+            services.AddScoped<IEndpointService, EndpointService>();
             
             services.AddScoped<IMessageHandlerService, MessageHandlerService>();
             services.AddChained<IMessageHandler>(typeof(UploadMessageHandler));
 
-            services.AddScoped<IEndpointService, EndpointService>();
-
             services.AddDecorator<
                 ISimpleService, SimpleServiceLoggingDecorator>(services => 
                 services.AddScoped<ISimpleService, SimpleService>());
-
-            services.AddScoped<INotifierService, NotifierService>();
-            services.AddScoped<IMessageService, MessageService>();
 
             services.AddFactory<IBaseUploadService, TCPUploadService>();
             services.AddFactory<IBaseUploadService, UDPUploadService>();
