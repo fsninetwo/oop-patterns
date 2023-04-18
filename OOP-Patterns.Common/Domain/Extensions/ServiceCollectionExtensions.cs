@@ -11,7 +11,38 @@ namespace OOP_Patterns.Common.Domain.Extensions
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection 
-            AddDecorator<TService, TDecorator>(this IServiceCollection serviceCollection, 
+            AddChained<TService>(this IServiceCollection services, params Type[] implementations)
+                where TService : class
+        {
+            if(implementations is null || !implementations.Any())
+            {
+                throw new ArgumentNullException("Insert at least one of implementation type", nameof(implementations)); 
+            }
+
+            foreach(var implementation in implementations) 
+            {
+                services.AddScoped(implementation);
+            }
+
+            var order = 0;
+            services.AddTransient(typeof(TService), provider =>
+            {
+                if(order > implementations.Length - 1)
+                {
+                    order = 0;
+                }
+
+                var type = implementations[order];
+                order++;
+
+                return provider.GetService(type);
+            });
+
+            return services;
+        }
+
+        public static IServiceCollection 
+            AddDecorator<TService, TDecorator>(this IServiceCollection services, 
                 Action<IServiceCollection> configureDecorateeServices)
                 where TService : class
                 where TDecorator : class, TService
@@ -30,7 +61,7 @@ namespace OOP_Patterns.Common.Domain.Extensions
 
             decorateeServices.Remove(decorateeDescriptor);
 
-            serviceCollection.Add(decorateeServices);
+            services.Add(decorateeServices);
 
             var decoratorInstanceFactory = ActivatorUtilities.CreateFactory(
                 typeof(TDecorator), new[] { typeof(TService) });
@@ -52,12 +83,11 @@ namespace OOP_Patterns.Common.Domain.Extensions
 
             decorateeDescriptor = RefactorDecorateeDescriptor(decorateeDescriptor);
 
-            serviceCollection.Add(decorateeDescriptor);
-            serviceCollection.Add(decoratorDescriptor);
+            services.Add(decorateeDescriptor);
+            services.Add(decoratorDescriptor);
 
-            return serviceCollection;
+            return services;
         }
-
 
         public static IServiceCollection AddFactory<TService, TImplementation>(this IServiceCollection services)
             where TService : class

@@ -5,12 +5,15 @@ using OOP_Patterns.Common.Domain.Interfaces;
 using OOP_Patterns.Common.Domain.Providers;
 using OOP_Patterns.Services.Adapters;
 using OOP_Patterns.Services.Adapters.Interfaces;
+using OOP_Patterns.Services.Handlers;
+using OOP_Patterns.Services.Handlers.Interfaces;
 using OOP_Patterns.Services.IServices;
 using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
 using OOP_Patterns.Services.Services.Adapter;
 using OOP_Patterns.Services.Services.Bridge;
 using OOP_Patterns.Services.Services.Builder;
+using OOP_Patterns.Services.Services.ChainOfResponsibility;
 using OOP_Patterns.Services.Services.Composite;
 using OOP_Patterns.Services.Services.Decorator;
 using OOP_Patterns.Services.Services.Facade;
@@ -42,6 +45,9 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IMessageService, MessageService>();
             services.AddScoped<IMessageProxyService, MessageProxyService>();
             services.AddScoped<IEndpointService, EndpointService>();
+            
+            services.AddScoped<IMessageHandlerService, MessageHandlerService>();
+            services.AddChained<IMessageHandler>(typeof(UploadMessageHandler));
 
             services.AddDecorator<
                 ISimpleService, SimpleServiceLoggingDecorator>(services => 
