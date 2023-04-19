@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using OOP_Patterns.API.Handlers;
+using OOP_Patterns.API.Handlers.Interfaces;
 using OOP_Patterns.Common.Domain.Extensions;
 using OOP_Patterns.Common.Domain.Interfaces;
 using OOP_Patterns.Common.Domain.Providers;
@@ -52,6 +54,8 @@ namespace OOP_Patterns.API.Extensions
             services.AddDecorator<
                 ISimpleService, SimpleServiceLoggingDecorator>(services => 
                 services.AddScoped<ISimpleService, SimpleService>());
+
+            services.AddScoped<IMessageCommandHandler, MessageCommandHandler>();
 
             services.AddFactory<IBaseUploadService, TCPUploadService>();
             services.AddFactory<IBaseUploadService, UDPUploadService>();
