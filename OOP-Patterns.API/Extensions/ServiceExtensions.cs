@@ -12,8 +12,6 @@ using OOP_Patterns.Services.Adapters.Interfaces;
 using OOP_Patterns.Services.Handlers;
 using OOP_Patterns.Services.Handlers.Interfaces;
 using OOP_Patterns.Services.IServices;
-using OOP_Patterns.Services.Mediators;
-using OOP_Patterns.Services.Mediators.Interfaces;
 using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
 using OOP_Patterns.Services.Services.Adapter;
