@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Patterns.Common.Domain.Interfaces
 {
-    public interface ICommand
-    {
-    }
-
-    public interface ICommand<TResult>
+    public interface IMediator
     {
     }
 }
