@@ -33,5 +33,10 @@ namespace OOP_Patterns.Common.Domain.Aggregates
         {
             return items[item];
         }
+
+        public List<T> GetItems()
+        {
+            return items;
+        }
     }
 }

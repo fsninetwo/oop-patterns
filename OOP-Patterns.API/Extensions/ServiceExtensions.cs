@@ -21,6 +21,7 @@ using OOP_Patterns.Services.Services.Decorator;
 using OOP_Patterns.Services.Services.Facade;
 using OOP_Patterns.Services.Services.Factory;
 using OOP_Patterns.Services.Services.Flyweight;
+using OOP_Patterns.Services.Services.Iterator;
 using OOP_Patterns.Services.Services.Proxy;
 using OOP_Patterns.Services.Services.Singleton;
 
@@ -47,6 +48,7 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IMessageService, MessageService>();
             services.AddScoped<IMessageProxyService, MessageProxyService>();
             services.AddScoped<IEndpointService, EndpointService>();
+            services.AddScoped<IIteratorService, IteratorService>();
             
             services.AddScoped<IMessageHandlerService, MessageHandlerService>();
             services.AddChained<IMessageHandler>(typeof(UploadMessageHandler));

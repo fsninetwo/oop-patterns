@@ -11,7 +11,7 @@ namespace OOP_Patterns.Common.Domain.Iterators
     public class ArrayIterator<T> : IIterator<T>
     {
         private ArrayAggregate<T> _aggregate;
-        private int Index = 0;
+        private int Index = -1;
 
         public bool IsCompleted => Index >= _aggregate.Count;
 
@@ -33,17 +33,17 @@ namespace OOP_Patterns.Common.Domain.Iterators
 
         public T Current()
         {
-            if (IsCompleted)
+            if (!IsCompleted)
             {
-                throw new InvalidOperationException();
+                return _aggregate.GetItem(Index);
             }
                 
-            return _aggregate.GetItem(Index);
+            throw new InvalidOperationException();
         }
 
         public void Reset()
         {
-            Index = 0;
+            Index = -1;
         }
     }
 }
