@@ -2,6 +2,8 @@
 using Microsoft.OpenApi.Models;
 using OOP_Patterns.API.Handlers;
 using OOP_Patterns.API.Handlers.Interfaces;
+using OOP_Patterns.API.Mediators;
+using OOP_Patterns.API.Mediators.Interfaces;
 using OOP_Patterns.Common.Domain.Extensions;
 using OOP_Patterns.Common.Domain.Interfaces;
 using OOP_Patterns.Common.Domain.Providers;
@@ -10,6 +12,8 @@ using OOP_Patterns.Services.Adapters.Interfaces;
 using OOP_Patterns.Services.Handlers;
 using OOP_Patterns.Services.Handlers.Interfaces;
 using OOP_Patterns.Services.IServices;
+using OOP_Patterns.Services.Mediators;
+using OOP_Patterns.Services.Mediators.Interfaces;
 using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
 using OOP_Patterns.Services.Services.Adapter;
@@ -56,6 +60,8 @@ namespace OOP_Patterns.API.Extensions
             services.AddDecorator<
                 ISimpleService, SimpleServiceLoggingDecorator>(services => 
                 services.AddScoped<ISimpleService, SimpleService>());
+
+            services.AddTransient<IMessageMediator, MessageMediator>();
 
             services.AddScoped<IMessageCommandHandler, MessageCommandHandler>();
 

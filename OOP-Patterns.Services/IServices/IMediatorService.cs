@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_Patterns.Common.Domain.Interfaces
+namespace OOP_Patterns.Services.IServices
 {
-    public interface ICommand
-    {
-    }
-
-    public interface ICommand<TResult>
+    internal class IMediatorService
     {
     }
 }

@@ -16,8 +16,4 @@
     <ProjectReference Include="..\OOP-Patterns.Data\OOP-Patterns.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Domain\NewFolder\" />
-  </ItemGroup>
-
 </Project>
