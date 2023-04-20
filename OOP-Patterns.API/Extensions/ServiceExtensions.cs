@@ -12,8 +12,6 @@ using OOP_Patterns.Services.Adapters.Interfaces;
 using OOP_Patterns.Services.Handlers;
 using OOP_Patterns.Services.Handlers.Interfaces;
 using OOP_Patterns.Services.IServices;
-using OOP_Patterns.Services.Mediators;
-using OOP_Patterns.Services.Mediators.Interfaces;
 using OOP_Patterns.Services.Providers;
 using OOP_Patterns.Services.Services.AbstractFactory;
 using OOP_Patterns.Services.Services.Adapter;
@@ -26,6 +24,7 @@ using OOP_Patterns.Services.Services.Facade;
 using OOP_Patterns.Services.Services.Factory;
 using OOP_Patterns.Services.Services.Flyweight;
 using OOP_Patterns.Services.Services.Iterator;
+using OOP_Patterns.Services.Services.Memento;
 using OOP_Patterns.Services.Services.Proxy;
 using OOP_Patterns.Services.Services.Singleton;
 
@@ -53,6 +52,7 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IMessageProxyService, MessageProxyService>();
             services.AddScoped<IEndpointService, EndpointService>();
             services.AddScoped<IIteratorService, IteratorService>();
+            services.AddSingleton<IMessageMementoService, MessageMementoService>();
             
             services.AddScoped<IMessageHandlerService, MessageHandlerService>();
             services.AddChained<IMessageHandler>(typeof(UploadMessageHandler));
