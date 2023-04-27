@@ -43,7 +43,6 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IUploadService, UploadService>();
             services.AddScoped<IDocumentService, DocumentService>();
             services.AddScoped<IReportService, ReportService>();
-            services.AddScoped<ISingletonService, SingletonService>();
             services.AddScoped<IFileSystemService, FileSystemService>();
             services.AddScoped<IFlyweightService, FlyweightService>();
             services.AddScoped<IFacadeService, FacadeService>();
@@ -52,6 +51,8 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IMessageProxyService, MessageProxyService>();
             services.AddScoped<IEndpointService, EndpointService>();
             services.AddScoped<IIteratorService, IteratorService>();
+
+            services.AddSingleton<ISingletonService, SingletonService>();
             services.AddSingleton<IMessageMementoService, MessageMementoService>();
             
             services.AddScoped<IMessageHandlerService, MessageHandlerService>();
