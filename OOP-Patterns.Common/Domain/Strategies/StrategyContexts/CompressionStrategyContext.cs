@@ -1,4 +1,5 @@
 ﻿using OOP_Patterns.Common.Domain.Strategies.Interfaces;
+using OOP_Patterns.Common.Domain.Strategies.StrategyContexts.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace OOP_Patterns.Common.Domain.Strategies.StrategyContexts
 {
-    public class CompressionStrategyContext
+    public class CompressionStrategyContext : ICompressionStrategyContext
     {
         private ICompressionStrategy _compressionStrategy;
 
-        public CompressionStrategyContext(ICompressionStrategy compressionStrategy)
+        public CompressionStrategyContext()
         {
-            _compressionStrategy = compressionStrategy;
         }
 
         public void SetStrategy(ICompressionStrategy compressionStrategy)

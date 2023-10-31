@@ -9,14 +9,14 @@ namespace OOP_Patterns.Common.Domain.Strategies
 {
     public class ZipCompressionStrategy : ICompressionStrategy
     {
-        public Task<string> CompressFile(string fileNmae)
+        public Task<string> CompressFile(string fileName)
         {
-            throw new NotImplementedException();
+            return Task.FromResult($"{fileName} file was compressed by using Zip compression");
         }
 
-        public Task<string> DeompressFile(string fileNmae)
+        public Task<string> DeompressFile(string fileName)
         {
-            throw new NotImplementedException();
+            return Task.FromResult($"{fileName} file was decompressed by using Zip compression");
         }
     }
 }

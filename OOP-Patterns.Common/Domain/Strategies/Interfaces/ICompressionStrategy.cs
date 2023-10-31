@@ -8,8 +8,8 @@ namespace OOP_Patterns.Common.Domain.Strategies.Interfaces
 {
     public interface ICompressionStrategy
     {
-        public Task<string> CompressFile(string fileNmae);
+        public Task<string> CompressFile(string fileName);
 
-        public Task<string> DeompressFile(string fileNmae);
+        public Task<string> DeompressFile(string fileName);
     }
 }
