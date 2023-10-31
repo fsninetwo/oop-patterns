@@ -7,6 +7,8 @@ using OOP_Patterns.API.Mediators.Interfaces;
 using OOP_Patterns.Common.Domain.Extensions;
 using OOP_Patterns.Common.Domain.Interfaces;
 using OOP_Patterns.Common.Domain.Providers;
+using OOP_Patterns.Common.Domain.Strategies.StrategyContexts;
+using OOP_Patterns.Common.Domain.Strategies.StrategyContexts.Interfaces;
 using OOP_Patterns.Services.Adapters;
 using OOP_Patterns.Services.Adapters.Interfaces;
 using OOP_Patterns.Services.Handlers;
@@ -28,6 +30,7 @@ using OOP_Patterns.Services.Services.Memento;
 using OOP_Patterns.Services.Services.Observer;
 using OOP_Patterns.Services.Services.Proxy;
 using OOP_Patterns.Services.Services.Singleton;
+using OOP_Patterns.Services.Services.Strategy;
 
 namespace OOP_Patterns.API.Extensions
 {
@@ -52,10 +55,13 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IMessageProxyService, MessageProxyService>();
             services.AddScoped<IEndpointService, EndpointService>();
             services.AddScoped<IIteratorService, IteratorService>();
+            services.AddScoped<ICompressionService, CompressionService>();
 
             services.AddSingleton<ISingletonService, SingletonService>();
             services.AddSingleton<IMessageMementoService, MessageMementoService>();
             services.AddSingleton<IMessageObserverService, MessageObserverService>();
+
+            services.AddSingleton<ICompressionStrategyContext, CompressionStrategyContext>();
             
             services.AddScoped<IMessageHandlerService, MessageHandlerService>();
             services.AddChained<IMessageHandler>(typeof(UploadMessageHandler));
