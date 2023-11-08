@@ -32,6 +32,7 @@ using OOP_Patterns.Services.Services.Proxy;
 using OOP_Patterns.Services.Services.Singleton;
 using OOP_Patterns.Services.Services.Strategy;
 using OOP_Patterns.Services.Services.Template;
+using OOP_Patterns.Services.Services.Visitor;
 
 namespace OOP_Patterns.API.Extensions
 {
@@ -58,6 +59,7 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IIteratorService, IteratorService>();
             services.AddScoped<ICompressionService, CompressionService>();
             services.AddScoped<IFileConverterService, FileConverterService>();
+            services.AddScoped<IDiagnosticsService, DiagnosticsService>();
 
             services.AddSingleton<ISingletonService, SingletonService>();
             services.AddSingleton<IMessageMementoService, MessageMementoService>();
