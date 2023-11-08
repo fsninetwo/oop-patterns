@@ -7,6 +7,8 @@ using OOP_Patterns.API.Mediators.Interfaces;
 using OOP_Patterns.Common.Domain.Extensions;
 using OOP_Patterns.Common.Domain.Interfaces;
 using OOP_Patterns.Common.Domain.Providers;
+using OOP_Patterns.Common.Domain.Strategies.StrategyContexts;
+using OOP_Patterns.Common.Domain.Strategies.StrategyContexts.Interfaces;
 using OOP_Patterns.Services.Adapters;
 using OOP_Patterns.Services.Adapters.Interfaces;
 using OOP_Patterns.Services.Handlers;
@@ -29,6 +31,9 @@ using OOP_Patterns.Services.Services.Observer;
 using OOP_Patterns.Services.Services.Proxy;
 using OOP_Patterns.Services.Services.Singleton;
 using OOP_Patterns.Services.Services.State;
+using OOP_Patterns.Services.Services.Strategy;
+using OOP_Patterns.Services.Services.Template;
+using OOP_Patterns.Services.Services.Visitor;
 
 namespace OOP_Patterns.API.Extensions
 {
@@ -53,10 +58,14 @@ namespace OOP_Patterns.API.Extensions
             services.AddScoped<IMessageProxyService, MessageProxyService>();
             services.AddScoped<IEndpointService, EndpointService>();
             services.AddScoped<IIteratorService, IteratorService>();
+            services.AddScoped<ICompressionService, CompressionService>();
+            services.AddScoped<IFileConverterService, FileConverterService>();
+            services.AddScoped<IDiagnosticsService, DiagnosticsService>();
 
             services.AddSingleton<ISingletonService, SingletonService>();
             services.AddSingleton<IMessageMementoService, MessageMementoService>();
             services.AddSingleton<IMessageObserverService, MessageObserverService>();
+            services.AddSingleton<ICompressionStrategyContext, CompressionStrategyContext>();
             services.AddSingleton<IPaymentService, PaymentService>();
             
             services.AddScoped<IMessageHandlerService, MessageHandlerService>();
