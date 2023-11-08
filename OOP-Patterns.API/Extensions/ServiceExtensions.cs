@@ -30,6 +30,7 @@ using OOP_Patterns.Services.Services.Memento;
 using OOP_Patterns.Services.Services.Observer;
 using OOP_Patterns.Services.Services.Proxy;
 using OOP_Patterns.Services.Services.Singleton;
+using OOP_Patterns.Services.Services.State;
 using OOP_Patterns.Services.Services.Strategy;
 using OOP_Patterns.Services.Services.Template;
 using OOP_Patterns.Services.Services.Visitor;
@@ -64,8 +65,8 @@ namespace OOP_Patterns.API.Extensions
             services.AddSingleton<ISingletonService, SingletonService>();
             services.AddSingleton<IMessageMementoService, MessageMementoService>();
             services.AddSingleton<IMessageObserverService, MessageObserverService>();
-
             services.AddSingleton<ICompressionStrategyContext, CompressionStrategyContext>();
+            services.AddSingleton<IPaymentService, PaymentService>();
             
             services.AddScoped<IMessageHandlerService, MessageHandlerService>();
             services.AddChained<IMessageHandler>(typeof(UploadMessageHandler));
