@@ -10,19 +10,19 @@ namespace OOP_Patterns.Common.Domain.States
 {
     public class PaidInvoiceState : IInvoiceState
     {
-        public Task Cancel(InvoiceStateModel invoice)
+        public Task<string> Cancel(InvoiceStateModel invoice)
         {
-            return Task.CompletedTask;
+            return Task.FromResult($"Invoice {invoice.Number} has been already paid");
         }
 
-        public Task Pay(InvoiceStateModel invoice)
+        public Task<string> Pay(InvoiceStateModel invoice)
         {
-            return Task.CompletedTask;
+            return Task.FromResult($"Invoice {invoice.Number} cannot be cancelled");
         }
 
-        public Task Refund(InvoiceStateModel invoice)
+        public Task<string> Refund(InvoiceStateModel invoice)
         {
-            return Task.CompletedTask;
+            return Task.FromResult($"Invoice {invoice.Number} has been refunded");
         }
     }
 }

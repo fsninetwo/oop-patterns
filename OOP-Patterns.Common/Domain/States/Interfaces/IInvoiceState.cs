@@ -10,10 +10,10 @@ namespace OOP_Patterns.Common.Domain.States.Interfaces
 {
     public interface IInvoiceState : IState
     {
-        Task Pay(InvoiceStateModel invoice);
+        Task<string> Pay(InvoiceStateModel invoice);
 
-        Task Cancel(InvoiceStateModel invoice);
+        Task<string> Cancel(InvoiceStateModel invoice);
 
-        Task Refund(InvoiceStateModel invoice);
+        Task<string> Refund(InvoiceStateModel invoice);
     }
 }

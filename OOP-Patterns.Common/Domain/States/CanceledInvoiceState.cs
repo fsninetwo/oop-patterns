@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace OOP_Patterns.Common.Domain.States
 {
-    public class UnpaidInvoiceState : IInvoiceState
+    public class CanceledInvoiceState : IInvoiceState
     {
         public Task<string> Cancel(InvoiceStateModel invoice)
         {
-            return Task.FromResult($"Cancelling invoice {invoice.Number}");
+            return Task.FromResult($"Invoice {invoice.Number} has been already cancelled and cannot be canceled again");
         }
 
         public Task<string> Pay(InvoiceStateModel invoice)
         {
-            return Task.FromResult($"Paying invoice {invoice.Number}");
+            return Task.FromResult($"Invoice {invoice.Number} has been already cancelled and cannot be paid");
         }
 
         public Task<string> Refund(InvoiceStateModel invoice)
         {
-            return Task.FromResult($"Invoice {invoice.Number} is unpaid and cannot be refunded");
+            return Task.FromResult($"Invoice {invoice.Number} has been already cancelled and cannot be refunded");
         }
     }
 }
